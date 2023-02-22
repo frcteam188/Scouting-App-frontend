@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<!-- 
+LIST OF ISSUES THE CODE CAN'T DO AS OF NOW:
+    -LINKS
+    -DETECT WHAT GAMEOBJECT IS LOADED IN INTAKE
+    -CHECK WHAT GAMEOBJECT IS SCORED IN THE LOWER GOAL
+    -FOULS
+    -UNDO ACTION
+    -MOVE TO TELEOP (only does auto for now)
+-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="Styles.css">
+    <script src="Script1.js"></script>
+    <title>Autonomous Code</title>
+</head>
+<body>
+
+<!-- Row of Buttons -->
+<table>
+<!-- High Goal -->
+<tr>
+
+<td> <button id = "1" class = "Cone High" onclick="AddPoints(6, 1)"></button> </td>
+<td> <button id = "2" class = "Cube High" onclick="AddPoints(6, 2)"></button> </td>
+<td> <button id = "3" class = "Cone High" onclick="AddPoints(6, 3)"></button> </td>
+
+
+<td> <button id = "4" class = "Cone High Co-Op" onclick="AddPoints(6, 4)"></button> </td>
+<td> <button id = "5" class = "Cube High Co-Op" onclick="AddPoints(6, 5)"></button> </td>
+<td> <button id = "6" class = "Cone High Co-Op" onclick="AddPoints(6, 6)"></button> </td>
+
+
+<td> <button id = "7" class = "Cone High" onclick="AddPoints(6, 7)"></button> </td>
+<td> <button id = "8" class = "Cube High" onclick="AddPoints(6, 8)"></button> </td>
+<td> <button id = "9" class = "Cone High" onclick="AddPoints(6, 9)"></button> </td>
+</tr>
+
+<!-- Medium Goal -->
+<tr>
+
+<td> <button id = "10" class = "Cone Medium" onclick="AddPoints(4, 10)"></button> </td>
+<td> <button id = "11" class = "Cube Medium" onclick="AddPoints(4, 11)"></button> </td>
+<td> <button id = "12" class = "Cone Medium" onclick="AddPoints(4, 12)"></button> </td>
+
+
+<td> <button id = "13" class = "Cone Medium Co-Op" onclick="AddPoints(4, 13)"></button> </td>
+<td> <button id = "14" class = "Cube Medium Co-Op" onclick="AddPoints(4, 14)"></button> </td>
+<td> <button id = "15" class = "Cone Medium Co-Op" onclick="AddPoints(4, 15)"></button> </td>
+
+
+<td> <button id = "16" class = "Cone Medium" onclick="AddPoints(4, 16)"></button> </td>
+<td> <button id = "17" class = "Cube Medium" onclick="AddPoints(4, 17)"></button> </td>
+<td> <button id = "18"class = "Cone Medium" onclick="AddPoints(4, 18)"></button> </td>
+</tr>
+
+<!-- Low Goal -->
+<tr>
+<tt>
+<td> <button id = "19" class = "Low" onclick="AddPoints(3, 19)"></button> </td>
+<td> <button id = "20" class = "Low" onclick="AddPoints(3, 20)"></button> </td>
+<td> <button id = "21" class = "Low" onclick="AddPoints(3, 21)"></button> </td>
+
+
+<td> <button id = "22" class = "Low Co-Op" onclick="AddPoints(3, 22)"></button> </td>
+<td> <button id = "23" class = "Low Co-Op" onclick="AddPoints(3, 23)"></button> </td>
+<td> <button id = "24" class = "Low Co-Op" onclick="AddPoints(3, 24)"></button> </td>
+
+
+<td> <button id = "25" class = "Low" onclick="AddPoints(3, 25)"></button> </td>
+<td> <button id = "26" class = "Low" onclick="AddPoints(3, 26)"></button> </td>
+<td> <button id = "27" class = "Low" onclick="AddPoints(3, 27)"></button> </td>
+</tr>
+</table>
+
+<button class = Cube> Pick Up Cube </button>
+<button class = Cone> Pick Up Cone </button>
+<button> Drop </button>
+<button onclick="AddPoints(3, 28)"> Left Community </button>
+
+<h2>Score:</h2>
+<h3 id ="score">0</h3>
+
+<button onclick="AddPoints(8, 30)"> Docked </button>
+<button onclick="AddPoints(12, 30)"> Docked And Engaged </button>
+
+
+</body>
+</html>
