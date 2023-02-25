@@ -3,7 +3,7 @@ import Counter from "./Counter";
 import PreloadToggle from "./PreloadToggle";
 import Toggle from "./Toggle";
 
-function AutoView({ onFormDataChange }) {
+function TeleView({ onFormDataChange }) {
   const counters = [
     { label: "ConesAcquired" },
     { label: "ConesScored" },
@@ -19,24 +19,9 @@ function AutoView({ onFormDataChange }) {
     setFormData((prevFormData) => ({ ...prevFormData, [label]: newCount }));
   };
 
-  const handleToggleChange = (label, newValue) => {
-    setFormData((prevFormData) => ({ ...prevFormData, [label]: newValue }));
-  };
-
   return (
-    <div className="AutoView">
+    <div className="TeleView">
       <code>formData{JSON.stringify(formData, null, 2)}</code>
-
-      <PreloadToggle
-        value={false}
-        onChange={(value) => handleToggleChange("Preload", value)}
-      ></PreloadToggle>
-
-      <Toggle
-        label="AutoLine"
-        value={false}
-        onChange={(value) => handleToggleChange("AutoLine", value)}
-      ></Toggle>
 
       {counters.map((counter) => (
         <Counter
@@ -48,4 +33,4 @@ function AutoView({ onFormDataChange }) {
   );
 }
 
-export default AutoView;
+export default TeleView;

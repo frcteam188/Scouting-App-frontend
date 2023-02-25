@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Button, Form, Table } from "react-bootstrap";
+import { Container, Row, Col, Button, Form } from "react-bootstrap";
 
 function MyComponent({ label, onCountChange }) {
   const [count, setCount] = useState(0);

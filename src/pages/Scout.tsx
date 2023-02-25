@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navigation from "../components/Navbar";
-import { Button, Container, Card, NavItem } from "react-bootstrap";
+import { Container, Card } from "react-bootstrap";
 import axios from "axios";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import AutoView from "../components/AutoView";
+import TeleView from "../components/TeleView";
 
 export default function Scout() {
   let { match, station } = useParams();
   const [teamNumber, setTeamNumber] = useState(0);
-  const formData = {};
-  const addData = (key, value) => {
-    formData[key] = value;
-  };
 
   if (!match || !station) {
     match = "1";
@@ -55,6 +52,12 @@ export default function Scout() {
     setTabIndex(index);
   };
 
+  const [formData, setFormData] = useState({});
+
+  const handleFormDataChange = (label, newFormData) => {
+    setFormData((prevFormData) => ({ ...prevFormData, [label]: newFormData }));
+  };
+
   return (
     <div>
       <Navigation title={title} bg={bg} />
@@ -62,7 +65,10 @@ export default function Scout() {
         <Card>
           <Card.Body>
             <Card.Title>{teamNumber}</Card.Title>
-            <Card.Text></Card.Text>
+            <Card.Text>
+              {" "}
+              <pre>parent formData: {JSON.stringify(formData, null, 2)}</pre>
+            </Card.Text>
           </Card.Body>
         </Card>
         <Tabs
@@ -77,11 +83,19 @@ export default function Scout() {
           </TabList>
 
           <TabPanel>
-            <AutoView />
+            <AutoView
+              onFormDataChange={(autoFromData) =>
+                handleFormDataChange("autoData", autoFromData)
+              }
+            ></AutoView>
           </TabPanel>
           <TabPanel>
             {" "}
-            <h1>Tele</h1>
+            <TeleView
+              onFormDataChange={(teleFormData) =>
+                handleFormDataChange("teleData", teleFormData)
+              }
+            ></TeleView>
           </TabPanel>
           <TabPanel>
             {" "}
