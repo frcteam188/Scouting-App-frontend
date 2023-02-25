@@ -7,7 +7,7 @@ export default function AppRoutes() {
     <Router>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/scout" element={<Scout />} />
+        <Route path="/scout/:match/:station" element={<Scout />} />
       </Routes>
     </Router>
   );

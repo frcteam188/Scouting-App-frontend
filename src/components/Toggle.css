@@ -1,0 +1,11 @@
+.square {
+  border-radius: 0 !important;
+}
+
+.completed {
+  background-color: green !important;
+}
+
+.not-completed {
+  background-color: red !important;
+}

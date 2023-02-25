@@ -3,12 +3,12 @@ import logo from "../logo.svg";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Button, Container, Navbar, NavItem } from "react-bootstrap";
 
-export default function Navigation({ title }) {
+function Navigation({ title, bg }) {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
   return (
     <div>
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg={bg} variant="dark">
         <Container>
           <Navbar.Brand href="#home">
             <img
@@ -55,3 +55,10 @@ export default function Navigation({ title }) {
     </div>
   );
 }
+
+Navigation.defaultProps = {
+  title: "Scouting App",
+  bg: "dark",
+};
+
+export default Navigation;
