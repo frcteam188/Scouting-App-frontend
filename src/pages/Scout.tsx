@@ -49,6 +49,11 @@ export default function Scout() {
   } else {
     bg = "dark";
   }
+  const [tabIndex, setTabIndex] = useState(0);
+
+  const handleTabSelect = (index) => {
+    setTabIndex(index);
+  };
 
   return (
     <div>
@@ -60,7 +65,11 @@ export default function Scout() {
             <Card.Text></Card.Text>
           </Card.Body>
         </Card>
-        <Tabs defaultIndex={0}>
+        <Tabs
+          selectedIndex={tabIndex}
+          onSelect={handleTabSelect}
+          forceRenderTabPanel
+        >
           <TabList>
             <Tab>Auto</Tab>
             <Tab>Tele</Tab>
