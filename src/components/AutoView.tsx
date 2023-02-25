@@ -1,22 +1,19 @@
 import React, { useState, useEffect } from "react";
-import Counter from "./Counter";
+import GamePieceCounter from "./GamePieceCounter";
 import PreloadToggle from "./PreloadToggle";
 import Toggle from "./Toggle";
 
 function AutoView({ onFormDataChange }) {
-  const counters = [
-    { label: "ConesAcquired" },
-    { label: "ConesScored" },
-    { label: "CubesAcquired" },
-    { label: "CubesScored" },
-  ];
   const [formData, setFormData] = useState({});
   useEffect(() => {
     onFormDataChange(formData);
   }, [formData, onFormDataChange]);
 
-  const handleCountChange = (label, newCount) => {
-    setFormData((prevFormData) => ({ ...prevFormData, [label]: newCount }));
+  const handleCountChange = (label, type, newCount) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [label]: { ...prevFormData[label], [type]: newCount },
+    }));
   };
 
   const handleToggleChange = (label, newValue) => {
@@ -30,20 +27,23 @@ function AutoView({ onFormDataChange }) {
       <PreloadToggle
         value={false}
         onChange={(value) => handleToggleChange("Preload", value)}
-      ></PreloadToggle>
+      />
 
       <Toggle
         label="AutoLine"
         value={false}
         onChange={(value) => handleToggleChange("AutoLine", value)}
-      ></Toggle>
+      />
 
-      {counters.map((counter) => (
-        <Counter
-          label={counter.label}
-          onCountChange={(count) => handleCountChange(counter.label, count)}
-        ></Counter>
-      ))}
+      <GamePieceCounter
+        label="Cones"
+        onCountChange={(type, count) => handleCountChange("Cones", type, count)}
+      />
+
+      <GamePieceCounter
+        label="Cubes"
+        onCountChange={(type, count) => handleCountChange("Cubes", type, count)}
+      />
     </div>
   );
 }
