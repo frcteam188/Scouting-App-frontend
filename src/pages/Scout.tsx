@@ -54,6 +54,7 @@ export default function Scout() {
   };
 
   const [formData, setFormData] = useState({});
+  const [currentGamePiece, setCurrentGamePiece] = useState("");
 
   const handleFormDataChange = (label, newFormData) => {
     // setFormData((prevFormData) => ({ ...prevFormData, [label]: newFormData }));
@@ -134,7 +135,8 @@ Scenario 2
             <Card.Title>{teamNumber}</Card.Title>
             <Card.Text>
               {" "}
-              <pre>parent formData: {JSON.stringify(formData, null, 2)}</pre>
+              {/* <pre>parent formData: {JSON.stringify(formData, null, 2)}</pre> */}
+              {`currentGamePiece : ${currentGamePiece}`}
             </Card.Text>
           </Card.Body>
         </Card>
@@ -154,6 +156,8 @@ Scenario 2
               onFormDataChange={(autoFromData) =>
                 handleFormDataChange("autoData", autoFromData)
               }
+              currentGamePiece={currentGamePiece}
+              setCurrentGamePiece={setCurrentGamePiece}
             ></AutoView>
           </TabPanel>
           <TabPanel>

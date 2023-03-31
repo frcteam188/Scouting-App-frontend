@@ -19,10 +19,10 @@ function PreloadToggle({ value, onChange }) {
   };
 
   return (
-    <Container>
+    <div>
       <Row>
-        <Col md={6}>
-          <h6>Preload</h6>
+        <Col md={3}>
+          <h3>Preload</h3>
         </Col>
         <Col sm={6}>
           <Button
@@ -34,7 +34,7 @@ function PreloadToggle({ value, onChange }) {
           </Button>
         </Col>
       </Row>
-    </Container>
+    </div>
   );
 }
 
