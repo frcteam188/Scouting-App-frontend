@@ -5,10 +5,8 @@ import "./PreloadToggle.css";
 function PreloadToggle({ value, onChange }) {
   const [isCube, setIsCube] = useState(value);
 
-  const coneImage =
-    "https://www.studica.ca/content/images/thumbs/0011539_2023-game-piece-cone_415.jpeg";
-  const cubeImage =
-    "https://www.studica.ca/content/images/thumbs/0011538_2023-game-piece-cube_550.jpeg";
+  const coneImage = "/cone.jpeg";
+  const cubeImage = "/cube.jpeg";
 
   const imageSrc = isCube ? coneImage : cubeImage;
 

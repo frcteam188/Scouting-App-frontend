@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navigation from "../components/Navbar";
-import { Container, Card } from "react-bootstrap";
+import { Container, Card, Image } from "react-bootstrap";
 import axios from "axios";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import AutoView from "../components/AutoView";
 import TeleView from "../components/TeleView";
 import EndGameView from "../components/EndGameView";
+import "./Scout.css";
 
 export default function Scout() {
   let { match, station } = useParams();
@@ -126,6 +127,13 @@ Scenario 2
   - 
   */
 
+  const coneImage = "/cone.jpeg";
+  const cubeImage = "/cube.jpeg";
+
+  let imageSrc = "";
+  if (currentGamePiece === "cone") imageSrc = coneImage;
+  else if (currentGamePiece === "cube") imageSrc = cubeImage;
+
   return (
     <div>
       <Navigation title={title} bg={bg} />
@@ -135,8 +143,15 @@ Scenario 2
             <Card.Title>{teamNumber}</Card.Title>
             <Card.Text>
               {" "}
-              {/* <pre>parent formData: {JSON.stringify(formData, null, 2)}</pre> */}
-              {`currentGamePiece : ${currentGamePiece}`}
+              {`currentGamePiece :`}
+              {imageSrc !== "" && (
+                <Image
+                  className="preloadSquare p-0 border-0"
+                  src={imageSrc}
+                  alt={currentGamePiece === "cone" ? "cube" : "cone"}
+                  fluid
+                />
+              )}
             </Card.Text>
           </Card.Body>
         </Card>
@@ -165,6 +180,8 @@ Scenario 2
               onFormDataChange={(teleFormData) =>
                 handleFormDataChange("teleData", teleFormData)
               }
+              currentGamePiece={currentGamePiece}
+              setCurrentGamePiece={setCurrentGamePiece}
             ></TeleView>
           </TabPanel>
           <TabPanel>

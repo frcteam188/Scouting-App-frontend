@@ -40,6 +40,14 @@ function ChargeStationButtons(props) {
               {"Engage"}
             </Button>
           </Col>
+          <Col>
+            <Button
+              onClick={() => handleClick("messedup")}
+              variant={pos === "messedup" ? "danger" : "secondary"}
+            >
+              {"Messedup"}
+            </Button>
+          </Col>
         </Row>
       }
     </>
