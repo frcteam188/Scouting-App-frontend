@@ -32,12 +32,6 @@ function TeleView({ onFormDataChange, currentGamePiece, setCurrentGamePiece }) {
     prevData.autoCubeScore[level] = formData.autoCubeScore[level] + 1;
     setFormData({ ...prevData });
   };
-  const handleStartingPosition = (position) => {
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      StartingPosition: position,
-    }));
-  };
   const handleChargeStation = (position) => {
     setFormData((prevFormData) => ({
       ...prevFormData,

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Col, Row, Container, Image } from "react-bootstrap";
+import { Button, Col, Row, Image } from "react-bootstrap";
 import "./PreloadToggle.css";
 
 function PreloadToggle({ value, onChange }) {
