@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import Navigation from "../components/Navbar";
-import { Container, Card, Image } from "react-bootstrap";
+import { Container, Card, Image, Button } from "react-bootstrap";
 import axios from "axios";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
@@ -9,10 +9,12 @@ import AutoView from "../components/AutoView";
 import TeleView from "../components/TeleView";
 import EndGameView from "../components/EndGameView";
 import "./Scout.css";
+const QRCode = require("qrcode");
 
 export default function Scout() {
   let { match, station } = useParams();
   const [teamNumber, setTeamNumber] = useState(188);
+  const [qrCode, setQrCode] = useState("");
 
   if (!match || !station) {
     match = "1";
@@ -58,7 +60,7 @@ export default function Scout() {
   const [currentGamePiece, setCurrentGamePiece] = useState("");
 
   const handleFormDataChange = (label, newFormData) => {
-    // setFormData((prevFormData) => ({ ...prevFormData, [label]: newFormData }));
+    setFormData((prevFormData) => ({ ...prevFormData, [label]: newFormData }));
   };
 
   /*format
@@ -134,6 +136,14 @@ Scenario 2
   if (currentGamePiece === "cone") imageSrc = coneImage;
   else if (currentGamePiece === "cube") imageSrc = cubeImage;
 
+  const handleSubmit = () => {
+    console.log(formData);
+    QRCode.toDataURL(JSON.stringify(formData), function (err, url) {
+      console.log(url);
+      setQrCode(url);
+    });
+  };
+
   return (
     <div>
       <Navigation title={title} bg={bg} />
@@ -152,6 +162,15 @@ Scenario 2
                   fluid
                 />
               )}
+              {qrCode !== "" && (
+                <Image
+                  className="preloadSquare p-0 border-0"
+                  src={qrCode}
+                  alt={"qrCode"}
+                  fluid
+                />
+              )}
+              <Button onClick={handleSubmit}>Submit</Button>
             </Card.Text>
           </Card.Body>
         </Card>
