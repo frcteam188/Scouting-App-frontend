@@ -79,7 +79,7 @@ function AutoView({ onFormDataChange, currentGamePiece, setCurrentGamePiece }) {
         <Col md={6}>
           <Row>
             <h3>Pickup</h3>
-            <Col md={2}>
+            <Col md={4}>
               <h4>Cone</h4>
               <PickUpButton
                 show={currentGamePiece !== ""}
@@ -88,7 +88,8 @@ function AutoView({ onFormDataChange, currentGamePiece, setCurrentGamePiece }) {
                 onReset={() => currentGamePiece("")}
               />
             </Col>
-            <Col md={2}>
+            <Col md={2}></Col>
+            <Col md={4}>
               <h4>Cube</h4>
               <PickUpButton
                 show={currentGamePiece !== ""}
@@ -109,7 +110,7 @@ function AutoView({ onFormDataChange, currentGamePiece, setCurrentGamePiece }) {
         <Col md={6}>
           <Row>
             <h3>Score</h3>
-            <Col md={2}>
+            <Col md={4}>
               <h4>Cone</h4>
               <ScoreButton
                 show={currentGamePiece === "cone"}
@@ -118,7 +119,8 @@ function AutoView({ onFormDataChange, currentGamePiece, setCurrentGamePiece }) {
                 onReset={() => setCurrentGamePiece("")}
               />
             </Col>
-            <Col md={2}>
+            <Col md={2}></Col>
+            <Col md={4}>
               <h4>Cube</h4>
               <ScoreButton
                 show={currentGamePiece === "cube"}
