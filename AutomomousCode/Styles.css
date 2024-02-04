@@ -1,0 +1,45 @@
+﻿.Cone 
+{
+  border: none;
+  background-color: #FFFF00;
+  text-align: center;
+  margin: 4px 2px;
+  border: 2px solid black;
+}
+
+
+.Cube
+{
+  border: none;
+  background-color: #A020F0;
+  text-align: center;
+  margin: 4px 2px;
+  border: 2px solid black;
+}
+
+.Co-Op 
+{
+ filter: brightness(65%);
+}
+
+.High
+{
+ padding: 20px 20px;
+}
+
+.Medium
+{
+ position:relative; left:5px;
+ padding: 15px 15px;
+}
+
+.Low
+{
+ position:relative; left:10px;
+ padding: 10px 10px;
+ border: none;
+ text-align: center;
+ margin: 4px 2px;
+ border: 2px solid black;
+}
+
